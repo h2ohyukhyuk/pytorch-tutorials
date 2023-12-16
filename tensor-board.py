@@ -64,7 +64,10 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
 from torch.utils.tensorboard import SummaryWriter
-writer = SummaryWriter('runs/fashion_mnist_experiment_1')
+from datetime import datetime
+import os
+os.makedirs('runs/fashion_mnist', exist_ok=True)
+writer = SummaryWriter('runs/fashion_mnist/%s' % datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
 
 dataiter = iter(trainloader)
 images, labels = next(dataiter)
