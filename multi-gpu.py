@@ -1,7 +1,13 @@
 # https://tutorials.pytorch.kr/intermediate/dist_tuto.html
 # https://csm-kr.tistory.com/47
 '''
-python -m torch.distributed.launch --nproc_per_node=4 --nnodes=2 --node_rank=0 --master_addr="127.0.0.1" --master_port=23456 main.py
+python -m torch.distributed.launch --nproc_per_node=4 --nnodes=1 --node_rank=0 --master_addr="127.0.0.1" --master_port=23456 main.py
+python -m torch.distributed.launch --nproc_per_node=4 --nnodes=1 --node_rank=1 --master_addr="127.0.0.1" --master_port=23456 main.py
+python -m torch.distributed.launch --nproc_per_node=4 --nnodes=1 --node_rank=2 --master_addr="127.0.0.1" --master_port=23456 main.py
+
+RANK: global rank, 전체 node에서 process ID
+LOCAL_RANK: node 하나 내부에서 process ID
+WORLD_SIZE: 전체 node에서 process 개수
 '''
 import torch
 import torch.nn as nn
