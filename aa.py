@@ -2,26 +2,17 @@
 
 import torch
 
-a = torch.randn((3,6))
-b = torch.randn((3,6))
+from torchvision import transforms
 
-print(a.size(1))
+a = torch.randn(size=(3, 4))
 
-c = torch.concatenate([a, b], dim=0)
-t = torch.arange(0,3)
+print(a)
 
-vars, idxs = torch.topk(a, k=5, dim=1, sorted=True, largest=True)
+pred = a.max(1)
+print(pred)
 
-t = (idxs == t.unsqueeze(1)).to(torch.float)
+pred = a.max(1, keepdim=True)
+print(pred)
 
-print(t, t.dtype, t.shape)
-print(t.sum(dim=0))
-print(vars)
-print(idxs)
-
-import numpy as np
-
-l = [np.arange(2, 6) for i in range(4)]
-print(l)
-l_c = np.concatenate(l)
-print(l_c)
+pred = a.max(1, keepdim=True)[1]
+print(pred)
