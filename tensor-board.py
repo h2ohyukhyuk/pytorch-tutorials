@@ -10,6 +10,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
+from torch.utils.tensorboard import SummaryWriter
+from datetime import datetime
+import os
+
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))])
 
 trainset = torchvision.datasets.FashionMNIST('data', download=True, train=True, transform=transform)
@@ -63,9 +67,7 @@ net = Net()
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 
-from torch.utils.tensorboard import SummaryWriter
-from datetime import datetime
-import os
+
 os.makedirs('runs/fashion_mnist', exist_ok=True)
 writer = SummaryWriter('runs/fashion_mnist/%s' % datetime.now().strftime('%Y-%m-%d-%H-%M-%S'))
 

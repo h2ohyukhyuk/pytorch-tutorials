@@ -3,3 +3,4 @@ runs
 model
 .idea
 venv
+*.onnx

@@ -1,4 +1,5 @@
 # https://pytorch.org/tutorials/beginner/fgsm_tutorial.html
+# Fast Gradient Sign Attack
 
 import torch
 import torch.nn as nn

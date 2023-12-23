@@ -10,6 +10,8 @@ x_np = torch.from_numpy(np_arr)
 x_ones = torch.ones_like(x_data)
 x_rand =torch.rand_like(x_data, dtype=torch.float)
 
+print(x_rand)
+
 shape = (2,3)
 rand_tensor = torch.rand(shape)
 ones_tensor = torch.ones(shape)
